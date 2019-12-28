@@ -105,7 +105,7 @@ nmap tt :%s/\t/    /g<CR>
 "新建.c,.h,.sh,.java文件，自动插入文件头 
 autocmd BufNewFile *.cpp,*.[ch],*.sh,*.rb,*.java,*.py exec ":call SetTitle()" 
 ""定义函数SetTitle，自动插入文件头 
-func SetTitle() 
+func !SetTitle() 
 	"如果文件类型为.sh文件 
 	if &filetype == 'sh' 
 		call setline(1,"\#!/bin/bash") 
@@ -157,7 +157,8 @@ autocmd BufNewFile * normal G
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "键盘命令
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <space> <S-:>"映射shift + ：为空格；
+"映射shift + ：为空格；
+map <space> <S-:> 
 :nmap <silent> <F9> <ESC>:Tlist<RETURN>
 " shift tab pages
 map <S-Left> :tabp<CR>
@@ -232,7 +233,7 @@ endfunc
 map <F6> :call FormartSrc()<CR><CR>
 
 "定义FormartSrc()
-func FormartSrc()
+func !FormartSrc()
     exec "w"
     if &filetype == 'c'
         exec "!astyle --style=ansi -a --suffix=none %"
