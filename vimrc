@@ -56,8 +56,13 @@ set tabstop=4
 " 统一缩进为4
 set softtabstop=4
 set shiftwidth=4
-" 使用空格代替制表符
-set expandtab
+
+" 使用空格代替制表符(4个空格)
+"set expandtab
+
+"使用制表符（一个制表符且宽度为4个字符）
+set noexpandtab
+
 " 在行和段开始处使用制表符
 set smarttab
 " 显示行号
